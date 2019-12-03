@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HorizonUpNow.Model
+namespace HorizonUpM.Model
 {
-    public class DeviceModel
+    public class Device
     {
         public int DeviceId { get; set; }
         public string PersonName { get; set; }
-        public DeviceModel()
+        public Device()
         {
-                
+
         }
-        public DeviceModel(int deviceid, string name)
+        public Device(int deviceid, string name)
         {
             DeviceId = deviceid;
             PersonName = name;

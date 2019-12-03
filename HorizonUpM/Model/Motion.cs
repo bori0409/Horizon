@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HorizonUpNow.Model
+namespace HorizonUpM.Model
 {
-    public class MotionModel
+    public class Motion
     {
         public int Id { get; set; }
         public double Pitch
@@ -20,11 +20,11 @@ namespace HorizonUpNow.Model
         public DateTime MyDataTime { get; set; }
         public int DeviceId { get; set; }
 
-        public MotionModel()
+        public Motion()
         {
 
         }
-        public MotionModel(int id, double roll, double yaw, double pitch, int devid, DateTime dateTime)
+        public Motion(int id, double roll, double yaw, double pitch, int devid, DateTime dateTime)
         {
             Id = id;
             Roll = roll;
@@ -33,8 +33,5 @@ namespace HorizonUpNow.Model
             DeviceId = devid;
             MyDataTime = dateTime;
         }
-
-
     }
 }
-

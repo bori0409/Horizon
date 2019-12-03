@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using HorizonUpM.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using HorizonUpNow.Model;
 
-namespace HorizonUpNow.Controllers
+namespace HorizonUpM.Controllers
 {
-    [Route("api/motion")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class MotionController : Controller
+    public class MotionController : ControllerBase
     {
-        private const string GET_ALL = "select* from Motion";
 
-        // GET: Motion
-        public IEnumerable<MotionModel> Get()
+        private const string GET_ALL = "select* from Motion";
+        // GET: api/Motion
+        [HttpGet]
+        public IEnumerable<Motion> Get()
         {
             //return dbneshto.Get();
-            List<MotionModel> liste = new List<MotionModel>();
-            using (SqlConnection conn = new SqlConnection(ConnectionString.connectionStrings))
+            List<Motion> liste = new List<Motion>();
+            using (SqlConnection conn = new SqlConnection(ConnectionString.connectionString))
             {
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
@@ -32,7 +33,7 @@ namespace HorizonUpNow.Controllers
                     {
                         while (reader.Read())
                         {
-                            MotionModel motion = ReadNextElement(reader);
+                            Motion motion = ReadNextElement(reader);
                             liste.Add(motion);
                         }
                     }
@@ -43,9 +44,9 @@ namespace HorizonUpNow.Controllers
             }
 
         }
-        protected MotionModel ReadNextElement(SqlDataReader reader)
+        protected Motion ReadNextElement(SqlDataReader reader)
         {
-            MotionModel mymotion = new MotionModel();
+            Motion mymotion = new Motion();
             mymotion.Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
             mymotion.Roll = reader.IsDBNull(1) ? 0 : reader.GetDouble(1);
             mymotion.Yaw = reader.IsDBNull(2) ? 0 : reader.GetDouble(2);
@@ -56,11 +57,11 @@ namespace HorizonUpNow.Controllers
         }
 
         // GET: api/Motion/5
-        [Route("{id}")]
-        public MotionModel Get(int id)
+        [HttpGet("{id}", Name = "Get")]
+        public Motion Get(int id)
         {
             string selectString = "select* from Motion where MotionId = @id";
-            using (SqlConnection conn = new SqlConnection(ConnectionString.connectionStrings))
+            using (SqlConnection conn = new SqlConnection(ConnectionString.connectionString))
             {
                 if (conn.State != System.Data.ConnectionState.Open)
                 {
@@ -87,14 +88,12 @@ namespace HorizonUpNow.Controllers
             }
         }
 
-
         // POST: api/Motion
         [HttpPost]
-
-        public int Post([FromBody] MotionModel value)
+        public int Post([FromBody] Motion value)
         {
             string insertString = "insert into Motion (MotionId,Roll, Yaw, Pitch, MyDateTime,DeviceId) values(@thisid, @thisroll, @thisyaw, @thisPitch, @thisMydateTime, @thisdeviceUD); ";
-            using (SqlConnection conn = new SqlConnection(Controllers.ConnectionString.connectionStrings))
+            using (SqlConnection conn = new SqlConnection(Controllers.ConnectionString.connectionString))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(insertString, conn))
@@ -111,52 +110,16 @@ namespace HorizonUpNow.Controllers
             }
         }
 
+        // PUT: api/Motion/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
 
-        //    // GET: Motion/Edit/5
-        //    public ActionResult Edit(int id)
-        //    {
-        //        return View();
-        //    }
-
-        //    // POST: Motion/Edit/5
-        //    [HttpPost]
-        //    [ValidateAntiForgeryToken]
-        //    public ActionResult Edit(int id, IFormCollection collection)
-        //    {
-        //        try
-        //        {
-        //            // TODO: Add update logic here
-
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //        catch
-        //        {
-        //            return View();
-        //        }
-        //    }
-
-        //    // GET: Motion/Delete/5
-        //    public ActionResult Delete(int id)
-        //    {
-        //        return View();
-        //    }
-
-        //    // POST: Motion/Delete/5
-        //    [HttpPost]
-        //    [ValidateAntiForgeryToken]
-        //    public ActionResult Delete(int id, IFormCollection collection)
-        //    {
-        //        try
-        //        {
-        //            // TODO: Add delete logic here
-
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //        catch
-        //        {
-        //            return View();
-        //        }
-        //    }
-        //}
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
     }
 }
