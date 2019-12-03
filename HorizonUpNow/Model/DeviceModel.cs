@@ -7,5 +7,16 @@ namespace HorizonUpNow.Model
 {
     public class DeviceModel
     {
+        public int DeviceId { get; set; }
+        public string PersonName { get; set; }
+        public DeviceModel()
+        {
+                
+        }
+        public DeviceModel(int deviceid, string name)
+        {
+            DeviceId = deviceid;
+            PersonName = name;
+        }
     }
 }
