@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonUpNow", "HorizonUpNow\HorizonUpNow.csproj", "{220C6C51-AB98-4F41-80AE-C464F15D3764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HorizonUpNow", "HorizonUpNow\HorizonUpNow.csproj", "{220C6C51-AB98-4F41-80AE-C464F15D3764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizonUpM", "HorizonUpM\HorizonUpM.csproj", "{2EC39370-1D31-4F43-8592-C954105AD80D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{220C6C51-AB98-4F41-80AE-C464F15D3764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{220C6C51-AB98-4F41-80AE-C464F15D3764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{220C6C51-AB98-4F41-80AE-C464F15D3764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC39370-1D31-4F43-8592-C954105AD80D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC39370-1D31-4F43-8592-C954105AD80D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC39370-1D31-4F43-8592-C954105AD80D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC39370-1D31-4F43-8592-C954105AD80D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
