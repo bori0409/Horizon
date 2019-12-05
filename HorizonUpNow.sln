@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HorizonUpNow", "HorizonUpNow\HorizonUpNow.csproj", "{220C6C51-AB98-4F41-80AE-C464F15D3764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPClient", "UDPClient\UDPClient.csproj", "{D16A197E-7AED-4094-B3D7-7E2689695594}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDPClient", "UDPClient\UDPClient.csproj", "{8246FF25-DECC-4AEC-A61F-65275044110A}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,12 @@ Global
 		{220C6C51-AB98-4F41-80AE-C464F15D3764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{220C6C51-AB98-4F41-80AE-C464F15D3764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{220C6C51-AB98-4F41-80AE-C464F15D3764}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D16A197E-7AED-4094-B3D7-7E2689695594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D16A197E-7AED-4094-B3D7-7E2689695594}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D16A197E-7AED-4094-B3D7-7E2689695594}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D16A197E-7AED-4094-B3D7-7E2689695594}.Release|Any CPU.Build.0 = Release|Any CPU
+
+		{8246FF25-DECC-4AEC-A61F-65275044110A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8246FF25-DECC-4AEC-A61F-65275044110A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8246FF25-DECC-4AEC-A61F-65275044110A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8246FF25-DECC-4AEC-A61F-65275044110A}.Release|Any CPU.Build.0 = Release|Any CPU
+ 
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
