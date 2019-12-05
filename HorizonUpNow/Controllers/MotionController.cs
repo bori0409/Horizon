@@ -93,13 +93,13 @@ namespace HorizonUpNow.Controllers
 
         public int Post([FromBody] MotionModel value)
         {
-            string insertString = "insert into Motion (MotionId,Roll, Yaw, Pitch, MyDateTime,DeviceId) values(@thisid, @thisroll, @thisyaw, @thisPitch, @thisMydateTime, @thisdeviceUD); ";
+            string insertString = "insert into Motion (Roll, Yaw, Pitch, MyDateTime,DeviceId) values(@thisroll, @thisyaw, @thisPitch, @thisMydateTime, @thisdeviceUD); ";
             using (SqlConnection conn = new SqlConnection(Controllers.ConnectionString.connectionStrings))
             {
                 conn.Open();
                 using (SqlCommand command = new SqlCommand(insertString, conn))
                 {
-                    command.Parameters.AddWithValue("@thisid", value.Id);
+                   
                     command.Parameters.AddWithValue("@thisroll", value.Roll);
                     command.Parameters.AddWithValue("@thisyaw", value.Yaw);
                     command.Parameters.AddWithValue("@thisPitch", value.Pitch);

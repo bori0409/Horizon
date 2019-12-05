@@ -48,6 +48,7 @@ namespace UDPClient
                                                 RemoteIpEndPoint.Address.ToString() +
                                                 " on their port number " +
                                                 RemoteIpEndPoint.Port.ToString());
+
                     Thread.Sleep(200);
 
                 }

@@ -4,9 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-
     <ProjectGuid>{8246FF25-DECC-4AEC-A61F-65275044110A}</ProjectGuid>
-
     <OutputType>Exe</OutputType>
     <RootNamespace>UDPClient</RootNamespace>
     <AssemblyName>UDPClient</AssemblyName>
@@ -34,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,14 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="ClientReceiver.cs" />
+    <Compile Include="MyHttpClient.cs" />
+    <Compile Include="MotionsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UDPNumberReceiverAbroad.cs" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
