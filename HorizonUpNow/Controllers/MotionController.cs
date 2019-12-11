@@ -59,7 +59,8 @@ namespace HorizonUpNow.Controllers
         [Route("{id}")]
         public MotionModel Get(int id)
         {
-            string selectString = "select* from Motion where MotionId = @id";
+            //string selectString = "select* from Motion order by DeviceId where DeviceId = @id and MotionId DESC limit 1" +
+            string selectString= "Select top 1 * from dbo.motion where DeviceId=@id order by MotionId DESC";
             using (SqlConnection conn = new SqlConnection(ConnectionString.connectionStrings))
             {
                 if (conn.State != System.Data.ConnectionState.Open)
