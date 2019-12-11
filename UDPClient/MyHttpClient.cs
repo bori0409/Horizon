@@ -11,10 +11,11 @@ namespace UDPClient
 {
     class MyHttpClient
     {
-        public async Task<List<MotionsModel>> PostItemHttpTask()
+        public async Task<List<MotionsModel>> PostItemHttpTask(MotionsModel mymotion)
         {
-            string MotionWebApi = "http://motionvab.azurewebsites.net";
-            MotionsModel mymotion = new MotionsModel();
+            string MotionWebApi = "http://motioninmotions.azurewebsites.net";
+            //string MotionWebApi = "http://http//localhost:61022";
+            //MotionsModel mymotion = new MotionsModel();
 
             using (HttpClient client = new HttpClient())
             {
@@ -23,7 +24,7 @@ namespace UDPClient
                 client.BaseAddress = new Uri(MotionWebApi);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                var response = client.PostAsync("/api/motion", content).Result;
+                var response = client.PostAsync( MotionWebApi+"/api/motion", content).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var responseEvent = client.GetAsync("/api/motion" + mymotion).Result;

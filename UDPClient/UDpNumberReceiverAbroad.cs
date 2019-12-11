@@ -13,7 +13,7 @@ namespace UDPClient
     class UDPNumberReceiverAbroad
 
     {
-        static void Main(string[] args)
+        static void MainS(string[] args)
         {
             //Creates a UdpClient for reading incoming data.
 
