@@ -20,6 +20,7 @@ namespace HorizonUpNow.Controllers
         {
             //return dbneshto.Get();
             List<MotionModel> liste = new List<MotionModel>();
+            
             using (SqlConnection conn = new SqlConnection(ConnectionString.connectionStrings))
             {
                 if (conn.State != System.Data.ConnectionState.Open)
@@ -57,10 +58,11 @@ namespace HorizonUpNow.Controllers
 
         // GET: api/Motion/5
         [Route("{id}")]
-        public MotionModel Get(int id)
+        public IEnumerable<MotionModel> Get(int id)
         {
+            List<MotionModel> liste2 = new List<MotionModel>();
             //string selectString = "select* from Motion order by DeviceId where DeviceId = @id and MotionId DESC limit 1" +
-            string selectString= "Select top 1 * from dbo.motion where DeviceId=@id order by MotionId DESC";
+            string selectString= "Select TOP 2 * from dbo.motion where DeviceId= @id order by MotionId DESC";
             using (SqlConnection conn = new SqlConnection(ConnectionString.connectionStrings))
             {
                 if (conn.State != System.Data.ConnectionState.Open)
@@ -74,18 +76,23 @@ namespace HorizonUpNow.Controllers
                     {
                         if (reader.HasRows)
                         {
-                            reader.Read();
-                            return ReadNextElement(reader);
+                            while (reader.Read())
+                            {
+                                MotionModel mymotion = ReadNextElement(reader);
+                                liste2.Add(mymotion);
+                            }
                         }
                         else
                         {
                             return null;
                         }
                     }
-
+                    
 
                 }
+               
             }
+            return liste2;
         }
 
 
